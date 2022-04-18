@@ -8,16 +8,20 @@
 # takes an unordered array of numbers as a parameter
 # and returns a sorted array using bubble sort, insertion
 # sort, or selection sort using loops, rather than recursion.
+
 def iterative_sort(array):
+    # length of the array
+    n = len(array)
+    # iterate over the array
+    for i in range(n):
+        for j in range(0, n - i - 1):
+            # compare elements and swap of needed
+            if array[j] > array[j + 1]:
+                array[j], array[j + 1] = array[j + 1], array[j]
+
+    # returns the sorted array
     return array
 
 def main():
-    arrays = [ [45, 67, -2, 33, 0, -44, 134, -67], \
-               [i for i in range(10)], \
-               [i for i in range(10,-1, -1)] ]
-
-    for a in arrays:
-        print("Unordered:", a)
-        print("Sorted:   ", iterative_sort(a))
-
+    print("Sorted: ", [i for i in range(-45,5, 2)] + [i for i in range(100,-34, -15)] + [i for i in range(1000,340, -47)])
 main()
