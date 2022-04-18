@@ -10,13 +10,20 @@
 # the number in the array, or -1 otherwise. Your
 # search should be performed using a loop, rather
 # than recursion.
-def linear_search(array, num):
+def linear_Search(list, n, key):
+    # Searching list sequentially
+    for i in range(0, n):
+        if (list[i] == key):
+            return i
     return -1
 
 def main():
-    a = [45, 67, -2, 33, -44, 134, -67]
-    print(a)
-    for n in [1, 0, -1, 2, -2, 134, 67, -67]:
-        print("%5d index? %d" % (n, linear_search(a, n)) )
+    list = [1, 1, 1, 2, 2, 2, 2, 2, 2, 3]
+    key = 3
+
+    n = len(list)
+    res = linear_Search(list, n, key)
+
+    print("Element found at index: ", res)
 
 main()
