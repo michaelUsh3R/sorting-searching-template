@@ -13,13 +13,27 @@
 def binary_search(array, num):
     return search(array, num, 0, len(array) - 1)
 
-def search(array, num, min, max):
+def search(array, num, min, max): # searches throughout the whole list
+    if min > max:
         return -1
+    else:
+        mid = (min + max) // 2
+    if array[mid] == num:
+        if mid != (len(array)-1):
+            if array[mid+1] == array[mid]:
+                return mid - 1
+            else:
+                return mid
+        else:
+            return mid
+    elif array[mid] > num:
+        return search(array, num, min, mid - 1)
+    else:
+        return search(array, num, mid + 1, max)
 
 def main():
-    a = [i for i in range(-1, 10, 2)]
-    print(a)
-    for n in [1, 0, -1, 2, -2, 4, 5, 6, 7, -67, 134]:
-        print("%5d index? %d" % (n, binary_search(a, n)) )
+    a = [1, 1, 1, 2, 2, 2, 2, 2, 2, 3] # test case
+    index = binary_search(a, 1)
+    print("Element found at index: ", index) #outputs the index of the element found in the array
 
 main()
